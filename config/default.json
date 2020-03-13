@@ -1,8 +1,14 @@
 {
-    "queueName": "test_queue",
     "workerConfig": {
         "workerExchange": "work_exchange",
-        "route": "string_test",
-        "resultExchange": "result_exchange"
+        "resultExchange": "result_exchange",
+        "connUrl": "amqp://localhost:32779/"
+    },
+    "defaultWorkerName": "string-test",
+    "routingKeys": {
+        "stringTest": "string_test",
+        "ping": "ping",
+        "geoip": "geoip",
+        "rdap": "rdap"
     }
 }
