@@ -1,0 +1,8 @@
+{
+    "queueName": "test_queue",
+    "workerConfig": {
+        "workerExchange": "work_exchange",
+        "route": "string_test",
+        "resultExchange": "result_exchange"
+    }
+}
