@@ -21,7 +21,8 @@ export class GeoIPWorker extends WorkerBase implements Worker {
                         throw err;
                     }
                     const content = JSON.parse(msg.content.toString());
-                    const { address, resultRoutingKey } = content;
+                    const { payload, resultRoutingKey } = content;
+                    const { address } = payload;
                     dns.lookup(address, (err: NodeJS.ErrnoException | null, result: string) => {
                         if (err) {
                             this.publishError(channel, resexch, resultRoutingKey, msg, err);

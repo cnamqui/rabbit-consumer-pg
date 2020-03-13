@@ -17,7 +17,8 @@ export class PingWorker extends WorkerBase implements Worker {
                 console.log(' [x] Received %s', msg.content.toString());
                 const resexch = this.workerConfig.resultExchange;
                 const content = JSON.parse(msg.content.toString());
-                const { address, resultRoutingKey } = content;
+                const { payload, resultRoutingKey } = content;
+                const { address } = payload;
                 channel.assertExchange(resexch, 'direct', { durable: true }, err => {
                     if (err) {
                         throw new Error(`Exchange: "${resexch} is not alive`);
